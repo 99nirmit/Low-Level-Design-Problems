@@ -2,6 +2,8 @@ package domain;
 
 public class TicTacToe {
 
+    // Encapsulation: Private variables to store the game state
+
     private int[][] board;
     private int[] rowSum;
     private int[] colSum;
@@ -9,6 +11,8 @@ public class TicTacToe {
     private int revDiagSum;
     private int n;
     private int winner;
+
+    // Single Responsibility Principle (SRP): Constructor initializes the game state
 
     public TicTacToe(int n){
         this.n = n;
@@ -20,7 +24,11 @@ public class TicTacToe {
         winner = 0;
     }
 
+    // Method and variable naming: Descriptive names for clarity
+
     public int move(int player, int row, int col) throws IllegalArgumentException{
+
+        // Exception Handling: Ensure valid moves
 
         if(row < 0 || col < 0 || row >= n || col >= n){
             throw new IllegalArgumentException("Move Out of board boundary");
@@ -34,6 +42,8 @@ public class TicTacToe {
         if(winner != 0){
             throw new IllegalArgumentException("Game Already has a winner");
         }
+
+        // Conditional Logic and Flow Control: Update game state and check for a winner
 
         int currentPlayer = player == 1 ? 1 : -1;
         board[row][col] = currentPlayer;
@@ -52,9 +62,14 @@ public class TicTacToe {
         return getWinner();
     }
 
+    // Encapsulation: Getter method to access the winner
+
     public int getWinner(){
         return winner;
     }
+
+    // Method and variable naming: Descriptive names for clarity
+    // Encapsulation: Public method to interact with the game state
 
     public void printBoard(){
         for(int i = 0;i < n;i++){

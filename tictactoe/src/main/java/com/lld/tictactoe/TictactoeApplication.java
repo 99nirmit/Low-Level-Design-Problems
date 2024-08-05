@@ -11,11 +11,15 @@ public class TictactoeApplication {
 
 	public static void main(String[] args) {
 
+		// Interaction between Classes: Creates an instance of TicTacToe
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter board size (n): ");
 		int n = scanner.nextInt();
 
 		TicTacToe game = new TicTacToe(n);
+
+		// Interaction between Classes: Manages the game state and player turns
 
 		int player  = 1;
 		while(game.getWinner() == 0){
